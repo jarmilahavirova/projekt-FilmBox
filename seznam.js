@@ -104,3 +104,31 @@ const filmy = [
 		premiera: '2022-12-24',
 	},
 ]
+
+const seznamFilmuElm = document.querySelector('#seznam-filmu')
+const detailFilmu = filmy.map((film) => {
+	return `<div class="col">
+	<div class="card">
+	  <img
+		src="${film.plakat.url}"
+		width="780"
+		height="520"
+		class="card-img-top"
+		alt="plakát"
+	  />
+	  <div class="card-body">
+		<h5 class="card-title">${film.nazev}</h5>
+		<p class="card-text">${film.ochutnavka}</p>
+		<a href="film.html" class="btn btn-primary">Přehrát</a>
+	  </div>
+	</div>
+  </div>
+  `
+})
+
+const procesDetails = (films) => {
+	// const films = (detailFilmu)
+	seznamFilmuElm.innerHTML = films.join(' ')
+}
+
+procesDetails(detailFilmu)
