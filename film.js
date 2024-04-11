@@ -104,3 +104,14 @@ const filmy = [
 		premiera: '2022-12-24',
 	},
 ]
+
+const noteElm = document.querySelector('#note-form')
+const preventDefault = (event) => {
+	preventDefault()
+}
+
+noteElm.addEventListener("submit", preventDefault)
+
+
+const inputElm = document.querySelector('#message-input')
+if inputElm = null
