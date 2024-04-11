@@ -150,7 +150,7 @@ const premiera = document.getElementById("premiera");
 
 // zanořené podmínky v podmínkách jsou tam k extra bonusu
 if (differenceBetweenDates < 0) {
-  if (Math.abs((differenceBetweenDates = 1))) {
+  if (Math.abs(differenceBetweenDates) === 1) {
     premiera.innerHTML = `Premiéra <strong>${ceskeDatum}</strong>, což bylo před ${Math.abs(
       differenceBetweenDates
     )}
@@ -163,8 +163,7 @@ dnem.`;
   }
 } else if (differenceBetweenDates > 0) {
   if ((differenceBetweenDates = 1)) {
-    premiera.innerHTML = `Premiéra <strong>${ceskeDatum}</strong>, což bude za ${differenceBetweenDates}
-  den.`;
+    premiera.innerHTML = `Premiéra <strong>${ceskeDatum}</strong>, což bude zítra`;
   } else if (differenceBetweenDates >= 2 && differenceBetweenDates <= 4) {
     premiera.innerHTML = `Premiéra <strong>${ceskeDatum}</strong>, což bude za ${differenceBetweenDates}
 	dny.`;
@@ -175,6 +174,49 @@ dnem.`;
 } else {
   premiera.innerHTML = `Premiéra <strong>${ceskeDatum}</strong>, což je dnes.`;
 }
+
+//  Úkol 7
+//body 1.2 a 1.3
+const lightenStars = (amount) => {
+  for (let i = 1; i <= amount; i++) {
+    const star = document.querySelector(`.fa-star:nth-child(${[i]})`);
+    star.classList.remove("far");
+    star.classList.add("fas");
+  }
+  for (let i = amount + 1; i <= 5; i++) {
+    const star = document.querySelector(`.fa-star:nth-child(${[i]})`);
+    star.classList.remove("fas");
+    star.classList.add("far");
+  }
+};
+
+//bod 2
+let clickedStar;
+const stars = document.querySelectorAll(".fa-star");
+
+// posluchač na kliknutí
+stars.forEach((star) => {
+  star.addEventListener("click", function () {
+    //bod 3
+    clickedStar = Number(star.textContent);
+    //bod 4
+    lightenStars(clickedStar);
+  });
+});
+
+//bonus
+// posluchač na najetí myší - bonus.bod 1
+stars.forEach((star) => {
+  star.addEventListener("mouseenter", function () {
+    lightenStars(Number(star.textContent));
+  });
+});
+// posluchač na odjetí myší - bonus.bod 2
+stars.forEach((star) => {
+  star.addEventListener("mouseleave", function () {
+    lightenStars(clickedStar);
+  });
+});
 
 /*
 // Úkol 8
