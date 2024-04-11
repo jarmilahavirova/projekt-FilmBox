@@ -105,16 +105,7 @@ const filmy = [
 	},
 ]
 
-const noteElm = document.querySelector('#note-form')
-const preventDefault = (event) => {
-	preventDefault()
-}
 
-noteElm.addEventListener("submit", preventDefault)
-
-
-const inputElm = document.querySelector('#message-input')
-if inputElm = null
 
 
 // Úkol 5
@@ -219,3 +210,21 @@ detailElm.innerHTML += `
 					</div>
 				</div>
 `;
+
+
+
+
+
+// Úkol 8
+const noteElm = document.querySelector('#note-form')
+const preventDefault = (event) => {
+	preventDefault()
+}
+
+noteElm.addEventListener("submit", preventDefault)
+
+
+const inputElm = document.querySelector('#message-input'
+const termsCheckElm = document.querySelector('#terms-checkbox')
+if inputElm = null => inputElm.classList.add('.is-invalid')
+if inputElm = true && termsCheckElm
