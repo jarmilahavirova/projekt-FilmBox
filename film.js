@@ -118,7 +118,7 @@ const filmy = [
   },
 ];
 
-// Úkol 5
+// Úkol 5 - Detail filmu
 const filmID = window.location.hash.slice(1);
 const filmovaData = filmy.find((film) => film.id === filmID);
 const detailElm = document.getElementById("detail-filmu");
@@ -129,6 +129,39 @@ detailElm.querySelector(".card-title").textContent = filmovaData.nazev;
 detailElm.querySelector(".card-text").textContent = filmovaData.popis;
 detailElm.querySelector(".col-md-5").querySelector("img").src =
   filmovaData.plakat.url;
+
+// Úkol 6 - Premiéra
+const ceskeDatum = dayjs(filmovaData.premiera).format("D. M. YYYY");
+
+/* bez bonusu to vypadá takto
+document.getElementById(
+  "premiera"
+).innerHTML = `Premiéra <strong>${ceskeDatum}</strong>.`;
+*/
+
+//s bonusem
+const differenceBetweenDates = dayjs(filmovaData.premiera).diff(
+  dayjs(),
+  "days"
+);
+
+if (differenceBetweenDates < 0) {
+  document.getElementById(
+    "premiera"
+  ).innerHTML = `Premiéra <strong>${ceskeDatum}</strong>, což bylo před ${Math.abs(
+    differenceBetweenDates
+  )}
+dny.`;
+} else if (differenceBetweenDates > 0) {
+  document.getElementById(
+    "premiera"
+  ).innerHTML = `Premiéra <strong>${ceskeDatum}</strong>, což bude za ${differenceBetweenDates}
+  dní.`;
+} else {
+  document.getElementById(
+    "premiera"
+  ).innerHTML = `Premiéra <strong>${ceskeDatum}</strong>, což je dnes.`;
+}
 
 /*
 // Úkol 8
