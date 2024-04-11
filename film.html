@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detail | FilmBox</title>
+    <link rel="shortcut icon" href="favicon.png" />
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="mdb5-standard-UI-kit-free-6.0.1/css/mdb.min.css"
+      rel="stylesheet"
+    />
+    <script src="mdb5-standard-UI-kit-free-6.0.1/js/mdb.min.js" defer></script>
+    <link rel="stylesheet" href="styly.css" />
+    <script src="spolecne.js" type="module"></script>
+    <script src="film.js" type="module"></script>
+  </head>
+  <body>
+    <!-- Navigace -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white">
+      <div class="container-fluid">
+        <button
+          class="navbar-toggler"
+          type="button"
+          id="menu-tlacitko"
+          aria-label="menu"
+        >
+          <i class="fas fa-bars"></i>
+        </button>
+        <div class="collapse navbar-collapse" id="menu-polozky">
+          <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">FilmBox</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="seznam.html">Seznam filmů</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="o-webu.html">O webu</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Detail -->
+    <div class="container-lg mt-5">
+      <div class="card mb-3" id="detail-filmu"></div>
+    </div>
+
+    <!-- Přehrávač -->
+    <div class="container-lg mt-5">
+      <div id="prehravac" class="player rounded shadow-4">
+        <video
+          controls
+          loop
+          preload="auto"
+          poster="https://user-images.githubusercontent.com/1045362/204167262-a16c4755-3d23-400e-b6b0-c9c242399ecf.jpg"
+          width="320"
+          height="180"
+        >
+          <source
+            src="https://user-images.githubusercontent.com/1045362/204137892-c6aee4cd-8cc1-44db-b076-71774d67c7b3.mp4"
+            type="video/mp4"
+          />
+        </video>
+        <div class="player-controls">
+          <button type="button" class="play fas fa-play">Přehrát</button>
+          <button type="button" class="pause fas fa-pause">Pozastavit</button>
+          <time class="current-time">00:00</time>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
