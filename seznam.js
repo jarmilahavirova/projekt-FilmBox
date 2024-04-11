@@ -103,12 +103,26 @@ const filmy = [
       "Na zámek v podhůří Krkonoš přijíždí jeho nový majitel Štěpán se svojí snoubenkou, krásnou komtesou Blankou, a mladším bratrem Adamem. Cestou kočár nešťastně srazí kolemjdoucí dívku, Adam jí pomůže a ona se do něj zamiluje. Na zámku Adam objeví starou vlašskou knihu, která by měla obsahovat cestu k pokladům. Tajemné značky vlašské knihy však nedokáže vyluštit ani národopisec Jiráček, který v kraji sbírá pověsti a nevychází z údivu nad tím, že zdejší lidé stále věří v Krakonoše. Na zámku se objeví záhadný cizinec a nabídne Štěpánovi, že jej k pokladu za určitých podmínek dovede. Výprava do hor může začít. Naplní se Liduščina láska k Adamovi? Jakou záhadu skrývá starý obraz na zámku Hůrka a co strašlivého se v horách kdysi odehrálo? A kdo je vlastně Krakonoš a jaké je jeho největší tajemství? (csfd.cz, Česká televize)",
     premiera: "2022-12-24",
   },
+  {
+    id: "jeden-zivot",
+    nazev: "Jeden život",
+    plakat: {
+      url: "https://image.pmgstatic.com/cache/resized/w360/files/images/film/posters/168/496/168496033_b0yy7s.jpg",
+      sirka: 360,
+      vyska: 533,
+    },
+    ochutnavka: "Životopisné drama z 2. světové války",
+    popis:
+      "Jeden život je britský životopisný film o britském humanitárním pracovníkovi Nicholasi Wintonovi. Film sleduje Wintona, který se ohlíží za svou minulostí, kdy pomáhal skupinám židovských dětí v Němci okupovaném Československu, aby se mohly ukrýt a uprchnout v letech 1938-39, těsně před začátkem druhé světové války. (csfd.cz, Vertical Entertainment)",
+    premiera: "2024-02-01",
+  },
 ];
 
+// Úkol 4
 //definování proměnné
 const seznamFilmuElm = document.querySelector("#seznam-filmu");
 
-// nadefinování pole, které obsahuje detaily filmů, jaké chceme vidět
+// nadefinování pole, které obsahuje detaily filmů, jaké chceme vidět = karty filmů
 const detailFilmu = filmy.map((film) => {
   return `<div class="col">
 	<div class="card">
@@ -129,10 +143,10 @@ const detailFilmu = filmy.map((film) => {
   `;
 });
 
-// funkce přidávající karty filmů do stránky
+// definování funkce přidávající karty filmů do stránky
 const procesDetails = (films) => {
   // const films = (detailFilmu)
-  seznamFilmuElm.innerHTML = films.join(" ");
+  seznamFilmuElm.innerHTML = films.join("");
 };
 
 //volání funkce
