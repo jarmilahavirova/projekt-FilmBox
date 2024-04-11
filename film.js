@@ -145,22 +145,35 @@ const differenceBetweenDates = dayjs(filmovaData.premiera).diff(
   "days"
 );
 
+// nadefinování opakující se proměné premiéra
+const premiera = document.getElementById("premiera");
+
+// zanořené podmínky v podmínkách jsou tam k extra bonusu
 if (differenceBetweenDates < 0) {
-  document.getElementById(
-    "premiera"
-  ).innerHTML = `Premiéra <strong>${ceskeDatum}</strong>, což bylo před ${Math.abs(
-    differenceBetweenDates
-  )}
-dny.`;
+  if (Math.abs((differenceBetweenDates = 1))) {
+    premiera.innerHTML = `Premiéra <strong>${ceskeDatum}</strong>, což bylo před ${Math.abs(
+      differenceBetweenDates
+    )}
+dnem.`;
+  } else {
+    premiera.innerHTML = `Premiéra <strong>${ceskeDatum}</strong>, což bylo před ${Math.abs(
+      differenceBetweenDates
+    )}
+		dny.`;
+  }
 } else if (differenceBetweenDates > 0) {
-  document.getElementById(
-    "premiera"
-  ).innerHTML = `Premiéra <strong>${ceskeDatum}</strong>, což bude za ${differenceBetweenDates}
+  if ((differenceBetweenDates = 1)) {
+    premiera.innerHTML = `Premiéra <strong>${ceskeDatum}</strong>, což bude za ${differenceBetweenDates}
+  den.`;
+  } else if (differenceBetweenDates >= 2 && differenceBetweenDates <= 4) {
+    premiera.innerHTML = `Premiéra <strong>${ceskeDatum}</strong>, což bude za ${differenceBetweenDates}
+	dny.`;
+  } else {
+    premiera.innerHTML = `Premiéra <strong>${ceskeDatum}</strong>, což bude za ${differenceBetweenDates}
   dní.`;
+  }
 } else {
-  document.getElementById(
-    "premiera"
-  ).innerHTML = `Premiéra <strong>${ceskeDatum}</strong>, což je dnes.`;
+  premiera.innerHTML = `Premiéra <strong>${ceskeDatum}</strong>, což je dnes.`;
 }
 
 /*
