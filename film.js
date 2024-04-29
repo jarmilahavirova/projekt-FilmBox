@@ -219,7 +219,7 @@ stars.forEach((star) => {
 });
 
 /*
-// Úkol 8
+// Úkol 8 - Janči začátek
 const noteElm = document.querySelector('#note-form')
 const preventDefault = (event) => {
 	preventDefault()
@@ -233,3 +233,27 @@ const termsCheckElm = document.querySelector('#terms-checkbox')
 if inputElm = null => inputElm.classList.add('.is-invalid')
 if inputElm = true && termsCheckElm
 */
+
+// Úkol 8 - Jarča doplňuje
+const formElm = document.querySelector("#note-form");
+formElm.addEventListener("submit", (event) => {
+  event.preventDefault();
+
+  const messageElm = document.querySelector("#message-input");
+  const checkboxElm = document.querySelector("#terms-checkbox");
+
+  console.log(checkboxElm.value);
+
+  if (messageElm.value === "") {
+    messageElm.classList.add("is-invalid");
+    messageElm.focus();
+  } else if (checkboxElm.checked !== true) {
+    messageElm.classList.remove("is-invalid");
+    checkboxElm.classList.add("is-invalid");
+    checkboxElm.focus();
+  } else {
+    messageElm.classList.remove("is-invalid");
+    checkboxElm.classList.remove("is-invalid");
+    formElm.innerHTML = `<p class="card-text"> ${messageElm.value}</p>`;
+  }
+});
