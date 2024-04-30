@@ -257,3 +257,42 @@ formElm.addEventListener("submit", (event) => {
     formElm.innerHTML = `<p class="card-text"> ${messageElm.value}</p>`;
   }
 });
+
+// Úkol 9
+//výběr elementů
+const prehravacElm = document.querySelector("#prehravac");
+const videoElm = document.querySelector("video");
+
+if (prehravacElm !== null) {
+  //9-2-2 spouštění videa
+  document.querySelector(".play").addEventListener("click", () => {
+    videoElm.play();
+  });
+
+  //9-2-3 a 9-2-4 změna ikonky z Play na pause
+  videoElm.addEventListener("playing", () => {
+    prehravacElm.classList.add("playing");
+  });
+
+  //9-3-1 zapauzování ikonky
+  document.querySelector(".pause").addEventListener("click", () => {
+    videoElm.pause();
+  });
+
+  //9-3-2 změna tlačítka z pause na play
+  videoElm.addEventListener("pause", () => {
+    prehravacElm.classList.remove("playing");
+  });
+
+  //9-4 nastavení času
+  videoElm.addEventListener("timeupdate", () => {
+    const playedSeconds = Math.round(videoElm.currentTime);
+    const minutes = String(Math.floor(playedSeconds / 60)).padStart(2, 0);
+    const seconds = String(playedSeconds % 60).padStart(2, 0);
+    document.querySelector(
+      ".current-time"
+    ).textContent = `${minutes}:${seconds}`;
+  });
+
+  //9-bonus
+}
