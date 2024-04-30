@@ -295,4 +295,42 @@ if (prehravacElm !== null) {
   });
 
   //9-bonus
+  document.addEventListener("keyup", (event) => {
+    if (
+      event.code === "Space" &&
+      event.target.tagName !== "TEXTAREA" &&
+      event.target.tagName !== "INPUT" &&
+      event.target.tagName !== "BUTTON"
+    ) {
+      if (prehravacElm.classList.contains("playing")) {
+        videoElm.pause();
+        prehravacElm.classList.remove("playing");
+      } else {
+        videoElm.play();
+        prehravacElm.classList.add("playing");
+      }
+    }
+  });
+
+  //Úkol 9 - extra bonus
+
+  const casovac = setTimeout(() => {
+    document.querySelector(".player-controls").classList.add("hidden");
+  }, 3000);
+
+  document.onmousemove = () => {
+    clearTimeout(casovac);
+    document.querySelector(".player-controls").classList.remove("hidden");
+    setTimeout(() => {
+      document.querySelector(".player-controls").classList.add("hidden");
+    }, 3000);
+  };
+
+  document.onkeyup = () => {
+    clearTimeout(casovac);
+    document.querySelector(".player-controls").classList.remove("hidden");
+    setTimeout(() => {
+      document.querySelector(".player-controls").classList.add("hidden");
+    }, 3000);
+  };
 }
